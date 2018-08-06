@@ -19,11 +19,17 @@ const Vegetable = plantdb.define('vegetable', {
     planted_on: Sequelize.DATE
 });
 
-const tomatoe = Vegetable.create({name: 'Tomatoe', color: 'red', planted_on:new Date("October 13, 2014 11:13:00")}).then( () => {
+const mushroom = Vegetable.build({
+    name: 'mushroom',
+    color: 'white',
+    planted_on: new Date(34283);
+})
+
+Vegetable.create({name: 'Tomatoe', color: 'red', planted_on: new Date("October 13, 2014 11:13:00")}).then( () => {
     console.log('tomatoe is added');
 })
 .catch( err => {
-    console.Error(err);
+    console.log(err);
 })
 
 Plot.belongsTo(Gardener)
@@ -34,6 +40,6 @@ Vegetable.belongsToMany(Plot, {through: 'vegetable_plot'})
 
 
 module.exports = {
-    plantdb, Gardener, Plot, Vegetable, tomatoe
+    plantdb, Gardener, Plot, Vegetable
 }
 // console.log(Gardener);
