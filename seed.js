@@ -1,4 +1,4 @@
-const { plantdb } = require('./model')
+const { plantdb, Gardener, Plot, Vegetable} = require('./model')
 
 
 plantdb.sync({force:true})
@@ -9,7 +9,7 @@ plantdb.sync({force:true})
     console.log('error: ' + err)
 })
 .finally(() => {
-    db.close()
+    plantdb.close()
 })
 
 
